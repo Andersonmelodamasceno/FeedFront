@@ -6,23 +6,21 @@ import { FeedService } from 'Services/FeedService';
   styleUrls: ['./feed.component.css']
 })
 export class FeedComponent {
-  nome: string = 'Anderson';
-  sobrenome: string = 'damasceno';
+  firstname: string = 'Anderson';
+  lastName :string= 'damasceno';
   email: string = 'dinhomelo_17@hotmail.com';
-
-
 
 
   constructor(private feedService: FeedService) { }
 
   pesquisarPorEmail() {
     if (this.email) {
-      this.feedService.getDadosPorEmail(this.email).subscribe(
+      this.feedService.pesquisarPorEmail(this.email).subscribe(
         (response) => {
           console.log('Resposta da solicitação:', response);
 
-          this.nome = response.nome;
-          this.sobrenome = response.sobrenome;
+          this.firstname
+          this.lastName
         },
         (error) => {
           console.error('Erro na solicitação:', error);
